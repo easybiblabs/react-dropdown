@@ -79,7 +79,7 @@ class Dropdown extends Component {
 
     let value = option.value || option.label || option
     let label = option.label || option.value || option
-    const Icon = this.props.icon;
+    const Icon = this.props.icon
     return (
       <div
         key={value}
@@ -128,7 +128,8 @@ class Dropdown extends Component {
     const { baseClassName } = this.props
     const disabledClass = this.props.disabled ? 'Dropdown-disabled' : ''
     const placeHolderValue = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.label
-    let value = (<div className={`${baseClassName}-placeholder`}>{placeHolderValue}</div>)
+    const arrow = <span className={`${baseClassName}-arrow`} />
+    let value = (<div className={`${baseClassName}-placeholder`}>{placeHolderValue}{arrow}</div>)
     let menu = this.state.isOpen || this.props.keepOpen ? <div className={`${baseClassName}-menu`}>{this.buildMenu()}</div> : null
 
     let dropdownClass = classNames({
@@ -141,7 +142,6 @@ class Dropdown extends Component {
       <div className={dropdownClass}>
         <div className={`${baseClassName}-control ${disabledClass}`} onMouseDown={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseDown.bind(this)}>
           {value}
-          <span className={`${baseClassName}-arrow`} />
         </div>
         {menu}
       </div>
