@@ -192,10 +192,12 @@ var Dropdown = function (_Component) {
 
       var disabledClass = this.props.disabled ? 'Dropdown-disabled' : '';
       var placeHolderValue = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.label;
+      var arrow = _react2.default.createElement('span', { className: baseClassName + '-arrow' });
       var value = _react2.default.createElement(
         'div',
         { className: baseClassName + '-placeholder' },
-        placeHolderValue
+        placeHolderValue,
+        arrow
       );
       var menu = this.state.isOpen || this.props.keepOpen ? _react2.default.createElement(
         'div',
@@ -211,8 +213,7 @@ var Dropdown = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: baseClassName + '-control ' + disabledClass, onMouseDown: this.handleMouseDown.bind(this), onTouchEnd: this.handleMouseDown.bind(this) },
-          value,
-          _react2.default.createElement('span', { className: baseClassName + '-arrow' })
+          value
         ),
         menu
       );
